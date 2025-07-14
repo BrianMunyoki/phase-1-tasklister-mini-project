@@ -3,35 +3,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const taskList = document.getElementById("tasks");
 
   form.addEventListener("submit", function (e) {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault();
 
     const newTaskDescription = document.getElementById("new-task-description").value;
-    const priority = document.getElementById("priority").value;
 
-    // Create list item
+    // Create new list item
     const li = document.createElement("li");
-    li.textContent = newTaskDescription + " ";
+    li.textContent = newTaskDescription;
 
-    // Set color based on priority
-    if (priority === "high") {
-      li.style.color = "red";
-    } else if (priority === "medium") {
-      li.style.color = "orange";
-    } else {
-      li.style.color = "green";
-    }
-
-    // Create delete button
-    const btn = document.createElement("button");
-    btn.textContent = "Delete";
-    btn.addEventListener("click", function () {
-      li.remove();
-    });
-
-    li.appendChild(btn);
+    // Add it to the task list
     taskList.appendChild(li);
 
-    // Reset the form
+    // Reset form input
     form.reset();
   });
 });
