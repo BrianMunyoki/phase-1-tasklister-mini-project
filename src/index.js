@@ -7,14 +7,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const newTaskDescription = document.getElementById("new-task-description").value;
 
-    // Create new list item
-    const li = document.createElement("li");
-    li.textContent = newTaskDescription;
+    if (newTaskDescription !== "") {
+      const li = document.createElement("li");
+      li.textContent = newTaskDescription;
+      taskList.appendChild(li);
+    }
 
-    // Add it to the task list
-    taskList.appendChild(li);
-
-    // Reset form input
     form.reset();
   });
 });
